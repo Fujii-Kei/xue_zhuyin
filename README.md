@@ -42,3 +42,4 @@
 　本番リリース：3月末
 
 　Figma: https://www.figma.com/file/Pm5EgOcPQ5q4r0y9E0da8j/diagram?node-id=0%3A1&t=AhgKIXPKLgeQNMXW-1
+　ER図: https://drive.google.com/file/d/1ocyzPL_Znmtvc4_4OMDBnFYMKXc9OY1P/view?usp=sharing 
