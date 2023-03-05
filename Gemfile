@@ -64,3 +64,5 @@ group :development do
   # gem "spring"
 end
 
+
+gem "sorcery", "~> 0.16.4"
