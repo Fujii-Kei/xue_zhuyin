@@ -11,6 +11,16 @@
   </head>
 
   <body>
+
+  <div id="nav">
+    <% if current_user %>
+      <%= link_to "Edit Profile", "#" %>
+      <%= link_to "Logout", :logout, data: { turbo_method: :post } %>
+    <% else %>
+      <%= link_to "Register", new_user_path %> |
+      <%= link_to "Login", :login %>
+    <% end %>
+  </div>
     <%= render 'shared/flash_message' %>
     <%= yield %>
   </body>
