@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %></title>
+    <title><%= "開心中文" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,12 +13,13 @@
   <body>
 
   <div id="nav">
+    <%= link_to (t "defaults.top"), root_path %>
     <% if current_user %>
-      <%= link_to "Edit Profile", "#" %>
-      <%= link_to "Logout", :logout, data: { turbo_method: :post } %>
+      <%= link_to (t "defaults.profile"), "#" %>
+      <%= link_to (t "defaults.logout"), :logout, data: { turbo_method: :post } %>
     <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Login", :login %>
+      <%= link_to (t "defaults.register"), new_user_path %> |
+      <%= link_to (t "defaults.login"), :login %>
     <% end %>
   </div>
     <%= render 'shared/flash_message' %>
