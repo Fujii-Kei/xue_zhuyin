@@ -68,3 +68,5 @@ end
 
 
 gem "sorcery", "~> 0.16.4"
+
+gem "tailwindcss-rails", "~> 2.0"
