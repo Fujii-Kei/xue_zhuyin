@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'category/index'
   get 'question/index'
   root 'top_pages#top'
   resources :users, only: %i[new create] 
