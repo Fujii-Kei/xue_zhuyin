@@ -25,3 +25,5 @@ ja:
   categories:
     index:
       start_course: "学習を開始する"
+    show:
+      take_quiz: "練習問題にチャレンジ"
