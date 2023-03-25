@@ -6,7 +6,6 @@ ja:
     logout: 'ログアウト'
     profile: 'プロフィール'
     category: '問題カテゴリー'
-    take_quiz: '問題に進む'
   users:
     new:
       create_an_account: 'アカウントを作成'
@@ -23,4 +22,8 @@ ja:
       failure: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
-      
+  categories:
+    index:
+      start_course: "学習を開始する"
+    show:
+      take_quiz: "練習問題にチャレンジ"
