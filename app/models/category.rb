@@ -4,4 +4,6 @@ class Category < ApplicationRecord
 
   has_many :levels
   has_many :results, dependent: :destroy
+
+  mount_uploader :category_image, CategoryUploader
 end
