@@ -1,0 +1,14 @@
+<%= form_with url: category_question_results_path, method: :post do %>
+  <% @questions.each do |question| %>
+    <%= question.title %>
+    <%= question.body %>
+    <% question.answers.each do |answer| %>
+      <div class="flex items-center mb-4">
+        <%= radio_button_tag "answers[#{question.id}][id]", answer.id %>
+        <%= label_tag "answers[#{question.id}][id]", answer.body, class: "block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+      </div>
+    <% end %>
+  <% end %>
+  
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
+<% end %>
