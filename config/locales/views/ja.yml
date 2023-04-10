@@ -6,6 +6,8 @@ ja:
     logout: 'ログアウト'
     profile: 'プロフィール'
     category: '問題カテゴリー'
+    message:
+      require_login: 'ログインしてください'
   users:
     new:
       create_an_account: 'アカウントを作成'
