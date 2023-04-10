@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  def index
+  def show
     @questions = Question.all
   end
 end
