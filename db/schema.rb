@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_06_060220) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_122054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.text "body", null: false
-    t.string "answer_audio"
+    t.bigint "question_id", null: false
+    t.bigint "answer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_answers_on_answer_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "bookmarks", force: :cascade do |t|
@@ -42,15 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_060220) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "question_answers", force: :cascade do |t|
-    t.bigint "question_id", null: false
-    t.bigint "answer_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["answer_id"], name: "index_question_answers_on_answer_id"
-    t.index ["question_id"], name: "index_question_answers_on_question_id"
   end
 
   create_table "question_categories", force: :cascade do |t|
@@ -83,6 +76,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_060220) do
     t.index ["user_id"], name: "index_results_on_user_id"
   end
 
+  create_table "user_answers", force: :cascade do |t|
+    t.text "body", null: false
+    t.string "answer_audio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -94,10 +94,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_060220) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "user_answers", column: "answer_id"
   add_foreign_key "bookmarks", "questions"
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "question_answers", "answers"
-  add_foreign_key "question_answers", "questions"
   add_foreign_key "question_categories", "categories"
   add_foreign_key "question_categories", "questions"
   add_foreign_key "results", "categories"
