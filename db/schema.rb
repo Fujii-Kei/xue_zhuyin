@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_12_055654) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_12_075557) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,12 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_055654) do
     t.string "category_image"
   end
 
-  create_table "levels", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "question_categories", force: :cascade do |t|
     t.bigint "question_id", null: false
     t.bigint "category_id", null: false
@@ -70,9 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_055654) do
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "level_id", null: false
     t.index ["category_id"], name: "index_results_on_category_id"
-    t.index ["level_id"], name: "index_results_on_level_id"
     t.index ["user_id"], name: "index_results_on_user_id"
   end
 
@@ -104,7 +96,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_055654) do
   add_foreign_key "question_categories", "categories"
   add_foreign_key "question_categories", "questions"
   add_foreign_key "results", "categories"
-  add_foreign_key "results", "levels"
   add_foreign_key "results", "users"
   add_foreign_key "user_answers", "answers"
   add_foreign_key "user_answers", "questions"
