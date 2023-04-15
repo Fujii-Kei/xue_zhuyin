@@ -8,7 +8,7 @@ class ResultsController < ApplicationController
 
     if @result.save
       # 保存に成功した場合は、ビューに遷移する
-      redirect_to category_question_result_path, notice: 'クイズ結果を保存しました。'
+      redirect_to category_question_result_path(category_id: @result.category_id, id: @result.id), notice: 'クイズ結果を保存しました。'
     else
       # 保存に失敗した場合は、エラーメッセージを表示する
       flash.now[:alert] = 'クイズ結果の保存に失敗しました。'
