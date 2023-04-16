@@ -1,0 +1,5 @@
+<% @results.each do |result| %>
+  <%= result.created_at.to_s(:datetime_jp) %>
+  <%= "#{result.score}点" %>
+  <br>
+<% end %>
