@@ -28,4 +28,5 @@ ja:
     index:
       start_course: "学習を開始する"
     show:
+      quiz_results: "過去のテスト結果"
       take_quiz: "練習問題にチャレンジ"
