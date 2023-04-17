@@ -20,7 +20,7 @@ class ResultsController < ApplicationController
 
   def index
     # 現在ログインしているユーザーのクイズ結果を取得する
-    @results = Result.where(user_id: current_user.id)
+    @results = current_user.results.includes(category: :questions)
   end
 
   def show
