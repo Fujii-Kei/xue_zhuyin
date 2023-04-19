@@ -1,5 +1,6 @@
 <% @results.each do |result| %>
   <%= result.created_at.to_fs(:datetime_jp) %>
-  <%= "#{result.score}問正解 / #{result.category.questions.count}問" %>
+  <%= link_to "#{result.score}問正解", category_question_result_path(result.category, result) %>
+  <%= "/ #{result.category.questions.count}問" %>
   <br>
 <% end %>
