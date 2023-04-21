@@ -2,3 +2,14 @@
   <%= content_tag :span, @result.score, class: "text-blue-600" %>
   <%= "問正解 / #{@result.category.questions.count}問中" %>
 </h1>
+
+<% question_number = 1 %>
+<% @result.category.questions.each do |question| %>
+  <div class="text-3xl font-bold">
+  <%= "問題#{question_number}."%>
+  <%= content_tag :span, question.body, class: "text-base font-normal" %>
+  </div>
+  <%= question.title %>
+  <% question_number += 1 %>
+  <br>
+<% end %>

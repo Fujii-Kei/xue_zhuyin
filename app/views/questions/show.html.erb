@@ -1,7 +1,9 @@
 <%= form_with url: category_question_results_path, method: :post do |f| %>
   <% @questions.each do |question| %>
+    <div class="text-3xl font-bold">
+      問題<%= question.id %>. <%= content_tag :span, question.body, class: "text-base font-normal" %>
+    </div> 
     <%= question.title %>
-    <%= question.body %>
     <% question.answers.each do |answer| %>
       <div class="flex items-center mb-4">
         <%= f.radio_button :"answers[#{question.id}][id]", answer.id %>
