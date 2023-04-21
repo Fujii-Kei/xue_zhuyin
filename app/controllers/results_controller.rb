@@ -2,8 +2,8 @@ class ResultsController < ApplicationController
   def create
     # クイズ結果を保存する
     @result = current_user.results.build(
-      score: calculate_score,
-      category_id: params[:category_id]
+      category_id: params[:category_id],
+      score: calculate_score
     )
 
     if @result.save
@@ -37,12 +37,10 @@ class ResultsController < ApplicationController
     # クイズの正解数を計算する
     score = 0
     answers = params[:answers]
-    
     answers.each do |question_id, answer_hash|
       answer_id = answer_hash[:id]
       score += 1 if Answer.find(answer_id).is_correct?
     end
-    
     score
   end
 end

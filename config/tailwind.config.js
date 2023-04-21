@@ -8,7 +8,6 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}',
     "./node_modules/flowbite/**/*.js"
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
