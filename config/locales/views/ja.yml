@@ -30,3 +30,9 @@ ja:
     show:
       quiz_results: "過去のテスト結果"
       take_quiz: "練習問題にチャレンジ"
+  questions:
+    show:
+      submit: "回答する"
+  results:
+    show:
+      go_back: "戻る"
