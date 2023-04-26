@@ -6,6 +6,8 @@
 <% question_number = 1 %>
 <% @result.category.questions.each do |question| %>
   <div class="text-3xl font-bold">
+    <% ua = @result.user_answers.find_by(answer_id: question.answers.pluck(:id)) %>
+      <%= ua.present? ? (ua.answer.is_correct? ? "◯" : "×") : "" %>
   <%= "問題#{question_number}."%>
   <%= content_tag :span, question.body, class: "text-base font-normal" %>
   </div>
@@ -13,7 +15,7 @@
   <% question_number += 1 %>
   <% question.answers.each do |answer| %>
     <div class="flex items-center mb-4">
-      <%= answer.is_correct? == true ? "◯" : "×" %>
+      <%= answer.is_correct? ? "◯" : "×" %>
       <%= label_tag answer.body %>
     </div>
   <% end %>

@@ -1,12 +1,14 @@
 class ResultsController < ApplicationController
   def create
     # クイズ結果を保存する
-    @result = current_user.results.build(
+    @result = current_user.results.create(
       category_id: params[:category_id],
       score: calculate_score
     )
-
-    if @result.save
+    # ユーザーの回答を保存する
+    set_user_answer
+    debugger
+    if @user_answer.save
       # 保存に成功した場合は、ビューに遷移する
       redirect_to category_question_result_path(category_id: @result.category_id, id: @result.id), notice: 'クイズ結果を保存しました。'
     else
@@ -42,5 +44,17 @@ class ResultsController < ApplicationController
       score += 1 if Answer.find(answer_id).is_correct?
     end
     score
+  end
+
+  def set_user_answer
+    # ユーザーの回答を保存する
+    answers = params[:answers]
+    answers.each do |question_id, answer_hash|
+      answer_id = answer_hash[:id]
+      @user_answer = current_user.user_answers.create(
+        answer_id: answer_id,
+        result_id: @result.id
+      )
+    end
   end
 end
