@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+Category.create!(name: "あいさつ", body: "あいさつの表現を学びましょう")
+Question.create!(title: "你好", body: "正しい日本語訳を選びましょう")
+QuestionCategory.create!(question_id: 1, category_id: 1)
+Answer.create!(body: "こんにちは", question_id: 1, is_correct: true)
+Answer.create!(body: "さようなら", question_id: 1, is_correct: false)
+Answer.create!(body: "ありがとう", question_id: 1, is_correct: false)
+Answer.create!(body: "ごめんなさい", question_id: 1, is_correct: false)
+Question.create!(title: "謝謝", body: "正しい日本語訳を選びましょう")
+QuestionCategory.create!(question_id: 2, category_id: 1)
+Answer.create!(body: "さようなら", question_id: 2, is_correct: false)
+Answer.create!(body: "ごめんなさい", question_id: 2, is_correct: false)
+Answer.create!(body: "ありがとう", question_id: 2, is_correct: true)
+Answer.create!(body: "こんにちは", question_id: 2, is_correct: false)
