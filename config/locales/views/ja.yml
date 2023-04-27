@@ -6,6 +6,7 @@ ja:
     logout: 'ログアウト'
     profile: 'プロフィール'
     category: '問題カテゴリー'
+    bookmark: 'マイ単語帳'
     message:
       require_login: 'ログインしてください'
   users:
