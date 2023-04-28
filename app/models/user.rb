@@ -19,10 +19,10 @@ class User < ApplicationRecord
   end
 
   def unbookmark(question)
-    bookmark_questions.destroy(board)
+    bookmark_questions.destroy(question)
   end
 
   def bookmark?(question)
-    bookmark_questions.include?(board)
+    bookmark_questions.include?(question)
   end
 end
