@@ -7,6 +7,8 @@ ja:
     profile: 'プロフィール'
     category: '問題カテゴリー'
     bookmark: 'マイ単語帳'
+    pronounce: '発音練習'
+    review: '復習モード'
     message:
       require_login: 'ログインしてください'
   users:

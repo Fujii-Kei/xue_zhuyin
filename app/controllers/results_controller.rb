@@ -7,7 +7,6 @@ class ResultsController < ApplicationController
     )
     # ユーザーの回答を保存する
     set_user_answer
-    debugger
     if @user_answer.save
       # 保存に成功した場合は、ビューに遷移する
       redirect_to category_question_result_path(category_id: @result.category_id, id: @result.id), notice: 'クイズ結果を保存しました。'
