@@ -10,6 +10,7 @@
       
   <%= "問題#{question_number}."%>
   <%= content_tag :span, question.body, class: "text-base font-normal" %>
+  <%= render 'bookmark_button', question: question %>
   </div>
   <%= question.title %>
   <% question_number += 1 %>

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_questions, through: :bookmarks, source: :question
   has_many :results, dependent: :destroy
   has_many :user_answers, dependent: :destroy
   has_many :answers, through: :user_answers
@@ -12,4 +13,16 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   enum role: { general: 0, admin: 1 }
+
+  def bookmark(question)
+    bookmark_questions << question
+  end
+
+  def unbookmark(question)
+    bookmark_questions.destroy(board)
+  end
+
+  def bookmark?(question)
+    bookmark_questions.include?(board)
+  end
 end
