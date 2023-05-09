@@ -3,12 +3,11 @@
   <%= "問正解 / #{@result.category.questions.count}問中" %>
 </h1>
 
-<% question_number = 1 %>
-<% @result.category.questions.each do |question| %>
+<% @result.category.questions.each_with_index do |question, question_number| %>
   <div class="text-3xl font-bold">
     <% ua = @result.user_answers.find_by(answer_id: question.answers.pluck(:id)) %>
       
-  <%= "問題#{question_number}."%>
+  <%= "問題#{question_number + 1}."%>
   <%= content_tag :span, question.body, class: "text-base font-normal" %>
   <%= render 'bookmark_button', question: question %>
   </div>
