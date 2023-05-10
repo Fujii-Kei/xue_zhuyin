@@ -1,10 +1,7 @@
 class Question < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
-  
   has_many :answers, dependent: :destroy
-
-  has_many :question_categories, dependent: :destroy
-  has_many :categories, through: :question_categories
+  belongs_to :category
   
   validates :body, presence: true
 end
