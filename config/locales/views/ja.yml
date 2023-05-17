@@ -39,3 +39,7 @@ ja:
   results:
     show:
       go_back: "戻る"
+  profiles:
+    show:
+      edit: "編集"
+      delete: "削除"

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[new create]
   resources :bookmarks, only: %i[index create destroy]
+  resource :profiles, only: %i[edit show update]
   get 'login', to: 'user_sessions#new', as: 'login'
   post 'login', to: 'user_sessions#create'
   post 'logout', to: 'user_sessions#destroy', as: 'logout'
