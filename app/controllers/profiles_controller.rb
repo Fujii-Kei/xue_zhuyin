@@ -19,6 +19,6 @@ class ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :email, :biography, :avatar)
   end
 end
