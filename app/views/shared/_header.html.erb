@@ -18,7 +18,7 @@
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
             <li>
-              <%= link_to (t "defaults.profile"), "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
+              <%= link_to (t "defaults.profile"), profile_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
             </li>
             <li>
               <%= link_to (t "defaults.logout"), :logout, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", data: { turbo_method: :post } %>

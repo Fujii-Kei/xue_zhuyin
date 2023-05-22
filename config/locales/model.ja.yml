@@ -8,3 +8,5 @@ ja:
           email: メールアドレス
           password: パスワード
           password_confirmation: パスワード確認
+          biography: 自己紹介
+          avatar: アイコン
