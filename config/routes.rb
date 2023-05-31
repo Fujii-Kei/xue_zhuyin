@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :user_answers
+      resources :users
+      resources :results
+      resources :questions
+      resources :categories
+      resources :bookmarks
+      resources :answers
+
+      root to: "user_answers#index"
+    end
   root 'top_pages#top'
   resources :categories, only: %i[index show] do
     resource :question, only: %i[show] do
