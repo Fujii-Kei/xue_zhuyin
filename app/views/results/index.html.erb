@@ -1,6 +1,11 @@
-<% @results.each do |result| %>
-  <%= result.created_at.to_fs(:datetime_jp) %>
-  <%= link_to "#{result.score}問正解", category_question_result_path(result.category, result) %>
-  <%= "/ #{result.category.questions.count}問" %>
-  <br>
+<% if @results.present? %>
+  <% @results.each do |result| %>
+    <%= result.created_at.to_fs(:datetime_jp) %>
+    <%= link_to "#{result.score}問正解", category_question_result_path(result.category, result) %>
+    <%= "/ #{result.category.questions.count}問" %>
+    <br>
+  <% end %>
+<% else %>
+  <p>まだ学習記録がありません</p>
+  <p>練習問題にチャレンジしてみましょう</p>
 <% end %>

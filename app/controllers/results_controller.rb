@@ -20,8 +20,8 @@ class ResultsController < ApplicationController
   end
 
   def index
-    # 現在ログインしているユーザーのクイズ結果を取得する
-    @results = current_user.results.includes(category: :questions)
+    # 現在ログインしているユーザーのクイズ結果から、urlのカテゴリーidと一致するものを取得する
+    @results = current_user.results.where(category_id: params[:category_id])
   end
 
   def show
