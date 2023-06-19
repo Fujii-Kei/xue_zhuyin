@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       root to: "user_answers#index"
     end
   root 'top_pages#top'
+  get 'terms', to: 'top_pages#terms'
+  get 'privacy_policy', to: 'top_pages#privacy'
   resources :bookmarks, only: %i[index]
   resources :categories, only: %i[index show] do
     resource :question, only: %i[show] do

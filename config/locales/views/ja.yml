@@ -9,6 +9,9 @@ ja:
     bookmark: 'マイ単語帳'
     pronounce: '発音練習'
     review: '復習モード'
+    terms: '利用規約'
+    privacy: 'プライバシーポリシー'
+    contact: 'お問い合わせ'
     message:
       require_login: 'ログインしてください'
   users:
@@ -16,6 +19,7 @@ ja:
       create_an_account: 'アカウントを作成'
       already_have_an_account: '既にアカウントをお持ちですか？'
       to_login: 'ログインはこちら'
+      agree: 'に同意します'
   user_sessions: 
     new:
       forgot_password: 'パスワードをお忘れですか？'
