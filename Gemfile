@@ -72,6 +72,8 @@ gem "sorcery", "~> 0.16.4"
 gem "tailwindcss-rails", "~> 2.0"
 
 gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
-gem "administrate", "~> 0.18.0"
+
 
 gem "dockerfile-rails", ">= 1.4", :group => :development
+gem "cssbundling-rails"
+gem "cssbundling-rails"

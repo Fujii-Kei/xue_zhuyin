@@ -1,9 +1,9 @@
 <div class="m-4">
   <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
     <%= form_with url: category_question_results_path, method: :post do |f| %>
-      <% @questions.each do |question| %>
+      <% @questions.each_with_index do |question, question_number| %>
         <div class="text-3xl font-bold">
-          問題<%= question.id %>. <%= content_tag :span, question.body, class: "text-base font-normal" %>
+          <%= "問題#{question_number + 1}."%> <%= content_tag :span, question.body, class: "text-base font-normal" %>
         </div> 
         <%= question.title %>
         <% question.answers.each do |answer| %>
