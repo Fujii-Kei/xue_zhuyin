@@ -1,0 +1,8 @@
+<h1>管理者ログイン</h1>
+<%= form_with url: admin_login_path do |f| %>
+  <%= f.label :email %><br />
+  <%= f.text_field :email %><br />
+  <%= f.label :password %><br />
+  <%= f.password_field :password %><br />
+  <%= f.submit "ログイン" %>
+<% end %>
