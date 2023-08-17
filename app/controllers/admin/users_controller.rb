@@ -1,45 +1,33 @@
 class Admin::UsersController < ApplicationController
-  before_action :admin_user
-  before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[edit update destroy]
 
   def index
-    @users = User.all.order(created_at: :desc)
+    @users = User.all
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
-      flash[:success] = 'ユーザー情報を更新しました'
-      redirect_to admin_users_path
+      redirect_to admin_users_path, notice: 'User was successfully updated.'
     else
-      flash[:danger] = 'ユーザー情報の更新に失敗しました'
-      redirect_to edit_admin_user_path(user)
+      flash.now[:alert] = 'User was failed to update.'
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    user = User.find(params[:id])
-    if user.destroy
-      flash[:success] = 'ユーザーを削除しました'
-      redirect_to admin_users_path
-    else
-      flash[:danger] = 'ユーザーの削除に失敗しました'
-      redirect_to admin_users_path
-    end
+    @user.destroy!
+    redirect_to admin_users_path, notice: 'User was successfully destroyed.'
   end
 
   private
-  def admin_user
-    redirect_to root_path unless current_user.admin?
-  end
 
   def set_user
     @user = User.find(params[:id])
   end
 
   def user_params
-    params.fetch(:user).permit(:name, :email, :role)
+    params.require(:user).permit(:name, :email, :role)
   end
 end
