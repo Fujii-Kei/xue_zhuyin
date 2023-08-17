@@ -16,7 +16,10 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @user.destroy!
+    redirect_to admin_users_path, notice: 'User was successfully destroyed.'
+  end
 
   private
 
