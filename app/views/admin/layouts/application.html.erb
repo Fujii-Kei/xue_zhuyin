@@ -12,6 +12,7 @@
   <body>
     <% if logged_in? %>
       <%= render 'admin/shared/header' %>
+      <%= render 'admin/shared/sidebar' %>
     <% end %>
     <%= render 'shared/flash_message' %>
     <%= yield %>
