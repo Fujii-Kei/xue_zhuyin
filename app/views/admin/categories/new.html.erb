@@ -1,0 +1,23 @@
+<h1>New Category</h1>
+
+<%= form_with model: @category, url: admin_categories_path, method: :post do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_image %>
+    <%= f.file_field :category_image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Create Category' %>
+    <%= link_to 'Cancel', admin_categories_path %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<h1>Edit Category</h1>
+
+<%= form_with model: @category, url: admin_category_path(@category), method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_image %>
+    <%= f.file_field :category_image, accept: 'image/*' %>
+    <%= f.hidden_field :category_image_cache %>
+  </div>
+
+  <div class="field">
+    <%= image_tag @category.category_image.url,
+    id: 'preview',
+    size: '300x200' if @category.category_image? %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Update Category' %>
+    <%= link_to 'Back', admin_categories_path %>
+  </div>
+<% end %>
