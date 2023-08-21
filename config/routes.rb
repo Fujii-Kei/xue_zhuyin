@@ -11,15 +11,12 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[new create]
   namespace :admin do
-    get 'users/index'
-    get 'users/edit'
-    get 'users/update'
-    get 'users/destroy'
     root 'dashboards#index'
     get 'login', to: 'user_sessions#new', as: 'login'
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy', as: 'logout'
     resources :users
+    resources :categories
   end
   resource :profile, only: %i[edit show update]
   get 'login', to: 'user_sessions#new', as: 'login'

@@ -1,0 +1,21 @@
+<h1>カテゴリー一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
+        <td><%= link_to 'Delete', admin_category_path(category), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Category', new_admin_category_path %>
