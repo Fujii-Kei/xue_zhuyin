@@ -1,0 +1,28 @@
+<h1>Questions</h1>
+
+<% @questions.each do |question| %>
+  <div class="question">
+    <h2><%= question.title %></h2>
+    <p><%= question.body %></p>
+    
+    <h3>Answers:</h3>
+    <ul>
+      <% question.answers.each do |answer| %>
+        <li>
+          <%= answer.body %>
+          <% if answer.is_correct %>
+            <span class="correct-answer">(Correct)</span>
+          <% end %>
+          <% if answer.answer_audio? %>
+            <%= link_to "Audio", rails_blob_path(answer.answer_audio) %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= link_to "Edit", edit_admin_question_path(question) %>
+    <%= link_to "Delete", admin_question_path(question), method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+<% end %>
+
+<%= link_to 'New Question', new_admin_question_path %>
