@@ -1,0 +1,39 @@
+<h1>New Questions</h1>
+
+<%= form_with model: @question, url: admin_questions_path do |f| %>
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, @categories, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <% 4.times do %>
+    <%= f.fields_for :answers, @question.answers.build do |answer| %>
+      <div class="field">
+        <%= answer.label :body %>
+        <%= answer.text_field :body %>
+      </div>
+      <div class="field">
+        <%= answer.label :is_correct %>
+        <%= answer.check_box :is_correct %>
+      </div>
+      <div class="field">
+        <%= answer.label :answer_audio %>
+        <%= answer.file_field :answer_audio %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit 'Create Question' %>
+    <%= link_to 'Cancel', admin_questions_path %>
+  </div>
+<% end %>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy', as: 'logout'
     resources :users
     resources :categories
+    resources :questions
   end
   resource :profile, only: %i[edit show update]
   get 'login', to: 'user_sessions#new', as: 'login'
