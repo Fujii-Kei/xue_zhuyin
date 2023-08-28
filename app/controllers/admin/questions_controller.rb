@@ -19,9 +19,18 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:id])
+    @categories = Category.all
   end
 
   def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to admin_questions_path, notice: 'Question was successfully updated.'
+    else
+      flash.now[:alert] = 'Question was failed to update.'
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

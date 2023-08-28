@@ -1,4 +1,43 @@
-<div>
-  <h1 class="font-bold text-4xl">Admin::Questions#edit</h1>
-  <p>Find me in app/views/admin/questions/edit.html.erb</p>
-</div>
+<h1>Edit Question</h1>
+
+<%= form_with model: @question, url: admin_question_path do |f| %>
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, @categories, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= f.label :question_audio %>
+    <%= f.file_field :question_audio %>
+  </div>
+
+  <%= f.fields_for :answers, @question.answers do |answer| %>
+    <div class="field">
+      <%= answer.label :body %>
+      <%= answer.text_field :body %>
+    </div>
+    <div class="field">
+      <%= answer.label :is_correct %>
+      <%= answer.check_box :is_correct %>
+    </div>
+    <div class="field">
+      <%= answer.label :answer_audio %>
+      <%= answer.file_field :answer_audio %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit 'Update Question' %>
+    <%= link_to 'Cancel', admin_questions_path %>
+  </div>
+<% end %>
