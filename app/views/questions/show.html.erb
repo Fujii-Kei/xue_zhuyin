@@ -6,6 +6,9 @@
           <%= "問題#{question_number + 1}."%> <%= content_tag :span, question.body, class: "text-base font-normal" %>
         </div> 
         <%= question.title %>
+        <% if question.question_audio? %>
+          <%= audio_tag question.question_audio.url, controls: true %>
+        <% end %>
         <% question.answers.each do |answer| %>
           <div class="flex items-center mb-4">
             <%= f.radio_button :"answers[#{question.id}][id]", answer.id %>

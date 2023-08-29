@@ -4,6 +4,9 @@
   <div class="question">
     <h2><%= question.title %></h2>
     <p><%= question.body %></p>
+    <% if question.question_audio? %>
+      <%= audio_tag question.question_audio.url, controls: true %>
+    <% end %>
     
     <h3>Answers:</h3>
     <ul>

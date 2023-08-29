@@ -1,6 +1,6 @@
 class Admin::QuestionsController < ApplicationController
   def index
-    @questions = Question.all
+    @questions = Question.all.order(:id)
   end
 
   def new
@@ -19,9 +19,18 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:id])
+    @categories = Category.all
   end
 
   def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to admin_questions_path, notice: 'Question was successfully updated.'
+    else
+      flash.now[:alert] = 'Question was failed to update.'
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -34,6 +43,7 @@ class Admin::QuestionsController < ApplicationController
       :title, 
       :body, 
       :category_id,
+      :question_audio,
       answers_attributes: [:id, :body, :is_correct, :answer_audio, :_destroy]
     ) 
   end
