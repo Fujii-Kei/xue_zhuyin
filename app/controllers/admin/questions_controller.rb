@@ -1,6 +1,6 @@
 class Admin::QuestionsController < ApplicationController
   def index
-    @questions = Question.all
+    @questions = Question.all.order(:id)
   end
 
   def new
@@ -43,6 +43,7 @@ class Admin::QuestionsController < ApplicationController
       :title, 
       :body, 
       :category_id,
+      :question_audio,
       answers_attributes: [:id, :body, :is_correct, :answer_audio, :_destroy]
     ) 
   end
