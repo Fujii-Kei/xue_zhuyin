@@ -80,4 +80,3 @@ gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 
 gem "dockerfile-rails", ">= 1.4", :group => :development
 gem "cssbundling-rails"
-gem "cssbundling-rails"
